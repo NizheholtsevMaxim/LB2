@@ -2,6 +2,9 @@ package ua.nure.nizheholtsev.lab2;
 
 import ua.nure.nizheholtsev.lab2.factory.ConnectionFactory;
 import ua.nure.nizheholtsev.lab2.service.EmployeesService;
+import ua.nure.nizheholtsev.lab2.service.PositionService;
+import ua.nure.nizheholtsev.lab2.service.impl.EmployeesServiceImpl;
+import ua.nure.nizheholtsev.lab2.service.impl.PositionServiceImpl;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -9,7 +12,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        EmployeesService service = new EmployeesService(ConnectionFactory.getConnection());
+        PositionService positionService = new PositionServiceImpl(ConnectionFactory.getConnection());
+        EmployeesService service = new EmployeesServiceImpl(ConnectionFactory.getConnection(), positionService);
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Select operation by number:");
@@ -25,7 +29,7 @@ public class Main {
             } else if (input == 0) {
                 break;
             } else {
-                System.out.println("Invalid inpiut");
+                System.out.println("Invalid input");
             }
         }
     }
