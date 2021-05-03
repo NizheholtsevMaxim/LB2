@@ -1,12 +1,14 @@
 package ua.nure.nizheholtsev.lab2.entity;
 
+import java.util.SplittableRandom;
+
 public class Employee {
     private int id;
     private String fname;
     private String lname;
     private String age;
+    private String position;
     private int positionId;
-
     public int getId() {
         return id;
     }
@@ -31,12 +33,12 @@ public class Employee {
         this.lname = lname;
     }
 
-    public int getPositionId() {
-        return positionId;
+    public String getPosition() {
+        return position;
     }
 
-    public void setPositionId(int positionId) {
-        this.positionId = positionId;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getAge() {
@@ -47,6 +49,14 @@ public class Employee {
         this.age = age;
     }
 
+    public int getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(int positionId) {
+        this.positionId = positionId;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -54,7 +64,7 @@ public class Employee {
                 ", fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
                 ", age='" + age + '\'' +
-                ", positionId=" + positionId +
+                ", position='" + position + '\'' +
                 '}';
     }
 }

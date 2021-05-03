@@ -7,9 +7,3 @@ CREATE TABLE employees (Age VARCHAR(100), Fname VARCHAR(100),ID INT AUTO_INCREME
                         PRIMARY KEY(ID),
                         CONSTRAINT a1 FOREIGN KEY (Position_id)
                         REFERENCES positions(ID));
-
-INSERT INTO `positions`(`Name`, `Salary`) VALUES ('Position1',1000)
-
-INSERT INTO `employees`(`Age`, `Fname`, `Lname`, `Position_id`) VALUES ('30','Ivan','Ivanov',1)
-
-SELECT * FROM employees AS e, positions AS p WHERE e.Position_id = p.id AND p.Salary > 1500

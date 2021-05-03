@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EmployeesDAOMySQL implements EmployeesDAO {
     private static final String SQL_INSERT_INTO_EMPLOYEES = "INSERT INTO `employees`(`Age`, `Fname`, `Lname`, `Position_id`) VALUES (?,?,?,?)";
-    private static final String SQL_SELECT_EMPLOYEES_BY_SALARY = "SELECT * FROM employees AS e, positions AS p WHERE e.Position_id = p.id AND p.Salary > ? ";
+    private static final String SQL_SELECT_EMPLOYEES_BY_SALARY = "select e.id, e.fname, e.lname, e.age, p.name , p.ID AS posID from employees as e, positions as p where e.position_id = p.id AND p.SALARY>? ORDER BY e.ID";
     private final Connection connection;
 
     public EmployeesDAOMySQL(Connection connection) {
@@ -44,11 +44,11 @@ public class EmployeesDAOMySQL implements EmployeesDAO {
     }
 
     private List<Employee> getEmployees(ResultSet rs) throws SQLException {
-        List<Employee> students = new ArrayList<Employee>();
+        List<Employee> employees = new ArrayList<Employee>();
         while (rs.next()) {
-            students.add(getEmployee(rs));
+            employees.add(getEmployee(rs));
         }
-        return students;
+        return employees;
     }
 
     private Employee getEmployee(ResultSet rs) throws SQLException {
@@ -56,8 +56,9 @@ public class EmployeesDAOMySQL implements EmployeesDAO {
         employee.setId(rs.getInt("ID"));
         employee.setFname(rs.getString("Fname"));
         employee.setLname(rs.getString("Lname"));
-        employee.setPositionId(rs.getInt("Position_id"));
         employee.setAge(rs.getString("age"));
+        employee.setPosition(rs.getString("Name"));
+        employee.setPositionId(rs.getInt("posID"));
         return employee;
     }
 }
