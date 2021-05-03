@@ -1,7 +1,5 @@
 package ua.nure.nizheholtsev.lab2.entity;
 
-import java.util.SplittableRandom;
-
 public class Employee {
     private int id;
     private String fname;
@@ -9,9 +7,6 @@ public class Employee {
     private String age;
     private String position;
     private int positionId;
-    public int getId() {
-        return id;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -31,10 +26,6 @@ public class Employee {
 
     public void setLname(String lname) {
         this.lname = lname;
-    }
-
-    public String getPosition() {
-        return position;
     }
 
     public void setPosition(String position) {
