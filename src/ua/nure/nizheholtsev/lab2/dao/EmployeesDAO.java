@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface EmployeesDAO {
     void createEmployee(Employee employee) throws SQLException;
+
     List<Employee> getEmployeesBySalary(int salary) throws SQLException;
 }

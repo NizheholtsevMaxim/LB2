@@ -5,7 +5,11 @@ import ua.nure.nizheholtsev.lab2.entity.Employee;
 import java.util.Scanner;
 
 public final class InputUtils {
-    public static Employee extractEmployeeFromConsole(Scanner scanner){
+    private InputUtils() {
+        throw new UnsupportedOperationException();
+    }
+
+    public static Employee extractEmployeeFromConsole(Scanner scanner) {
         Employee employee = new Employee();
         System.out.println("Insert First Name");
         employee.setFname(scanner.next());
@@ -16,8 +20,5 @@ public final class InputUtils {
         System.out.println("Insert Position id");
         employee.setPositionId(scanner.nextInt());
         return employee;
-    }
-    private InputUtils() {
-        throw new UnsupportedOperationException();
     }
 }
